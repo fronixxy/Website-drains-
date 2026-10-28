@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Exterior foundation waterproofing: excavated trench, membrane and new weeping tile">
+<defs>
+<pattern id="soil" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#7a5a3c"/><circle cx="8" cy="10" r="2" fill="#6a4c31"/><circle cx="28" cy="22" r="1.6" fill="#8d6b4a"/><circle cx="18" cy="34" r="2.2" fill="#654729"/><circle cx="34" cy="6" r="1.2" fill="#916f4d"/></pattern>
+<pattern id="gravel" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#9c9a94"/><circle cx="5" cy="6" r="4" fill="#bdbab3"/><circle cx="16" cy="5" r="3.4" fill="#86837c"/><circle cx="11" cy="16" r="4.2" fill="#aeaba4"/><circle cx="21" cy="18" r="3" fill="#c9c6bf"/><circle cx="2" cy="20" r="2.6" fill="#7d7a73"/></pattern>
+<pattern id="concrete" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#c4c2bc"/><circle cx="7" cy="9" r="1" fill="#a9a7a1"/><circle cx="22" cy="20" r="1.2" fill="#b3b1ab"/><circle cx="15" cy="27" r=".8" fill="#9e9c96"/></pattern>
+<pattern id="dimple" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#1f2a36"/><circle cx="7" cy="7" r="4" fill="#2e3e50"/></pattern>
+<pattern id="grass" width="12" height="14" patternUnits="userSpaceOnUse"><rect width="12" height="14" fill="#5e9c45"/><path d="M2 14 L4 4 L6 14 M7 14 L9 2 L11 14" fill="#4c8636"/></pattern>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd9f0"/><stop offset="1" stop-color="#e9f3fb"/></linearGradient>
+<linearGradient id="pipe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f2"/><stop offset=".6" stop-color="#d9d8d3"/><stop offset="1" stop-color="#b4b3ad"/></linearGradient>
+<linearGradient id="black" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f55"/><stop offset="1" stop-color="#1f2328"/></linearGradient>
+</defs>
+<rect width="800" height="560" fill="url(#sky)"/>
+<rect x="0" y="0" width="330" height="200" fill="#e7d6c1"/>
+<rect x="30" y="30" width="110" height="90" fill="#fff" stroke="#8a7a66" stroke-width="6"/><line x1="85" y1="30" x2="85" y2="120" stroke="#8a7a66" stroke-width="4"/>
+<rect x="180" y="40" width="120" height="160" fill="#7e3b2c"/><circle cx="285" cy="125" r="5" fill="#d9b44a"/>
+<rect x="0" y="200" width="800" height="360" fill="url(#soil)"/>
+<rect x="330" y="186" width="470" height="16" fill="url(#grass)"/>
+<rect x="0" y="200" width="300" height="320" fill="url(#concrete)"/>
+<rect x="300" y="200" width="18" height="300" fill="#15191d"/>
+<rect x="318" y="200" width="14" height="300" fill="url(#dimple)"/>
+<path d="M332 200 L332 520 L640 520 L700 200 Z" fill="#5b4430"/>
+<path d="M332 200 L332 520 L630 520 L688 200 Z" fill="#c9b79d" opacity=".25"/>
+<rect x="250" y="500" width="160" height="40" fill="url(#concrete)"/>
+<rect x="332" y="440" width="120" height="60" fill="url(#gravel)"/>
+<rect x="342" y="462" width="100" height="26" rx="13" fill="url(#black)"/>
+<g fill="#0e1114"><rect x="350" y="472" width="6" height="6" rx="2"/>
+<rect x="361" y="472" width="6" height="6" rx="2"/>
+<rect x="372" y="472" width="6" height="6" rx="2"/>
+<rect x="383" y="472" width="6" height="6" rx="2"/>
+<rect x="394" y="472" width="6" height="6" rx="2"/>
+<rect x="405" y="472" width="6" height="6" rx="2"/>
+<rect x="416" y="472" width="6" height="6" rx="2"/>
+<rect x="427" y="472" width="6" height="6" rx="2"/></g>
+<path d="M705 200 L760 120 L770 128 L716 206 Z" fill="#f0b323"/>
+<path d="M760 120 L790 60 L800 64 L770 128Z" fill="#f0b323"/>
+<path d="M650 250 L700 205 L720 215 L690 265 Q660 280 640 265Z" fill="#e0a21a" stroke="#6b4e0b" stroke-width="3"/>
+<g stroke="#e8edf2" stroke-width="2" opacity=".8"><line x1="360" y1="230" x2="360" y2="420" stroke-dasharray="8 8"/></g>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="360" y="230" rx="6" width="250" height="30" fill="#0f2a44" opacity=".88"/><text x="370" y="251" fill="#fff">Membrane + dimple board</text></g>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="460" y="450" rx="6" width="260" height="30" fill="#0f2a44" opacity=".88"/><text x="470" y="471" fill="#fff">New weeping tile in gravel</text></g>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="20" y="330" rx="6" width="165" height="30" fill="#0f2a44" opacity=".88"/><text x="30" y="351" fill="#fff">Foundation wall</text></g>
+</svg>

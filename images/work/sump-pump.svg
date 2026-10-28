@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Sump pump pit with pump, float switch, check valve and discharge pipe">
+<defs>
+<pattern id="soil" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#7a5a3c"/><circle cx="8" cy="10" r="2" fill="#6a4c31"/><circle cx="28" cy="22" r="1.6" fill="#8d6b4a"/><circle cx="18" cy="34" r="2.2" fill="#654729"/><circle cx="34" cy="6" r="1.2" fill="#916f4d"/></pattern>
+<pattern id="gravel" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#9c9a94"/><circle cx="5" cy="6" r="4" fill="#bdbab3"/><circle cx="16" cy="5" r="3.4" fill="#86837c"/><circle cx="11" cy="16" r="4.2" fill="#aeaba4"/><circle cx="21" cy="18" r="3" fill="#c9c6bf"/><circle cx="2" cy="20" r="2.6" fill="#7d7a73"/></pattern>
+<pattern id="concrete" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="#c4c2bc"/><circle cx="7" cy="9" r="1" fill="#a9a7a1"/><circle cx="22" cy="20" r="1.2" fill="#b3b1ab"/><circle cx="15" cy="27" r=".8" fill="#9e9c96"/></pattern>
+<pattern id="dimple" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#1f2a36"/><circle cx="7" cy="7" r="4" fill="#2e3e50"/></pattern>
+<pattern id="grass" width="12" height="14" patternUnits="userSpaceOnUse"><rect width="12" height="14" fill="#5e9c45"/><path d="M2 14 L4 4 L6 14 M7 14 L9 2 L11 14" fill="#4c8636"/></pattern>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd9f0"/><stop offset="1" stop-color="#e9f3fb"/></linearGradient>
+<linearGradient id="pipe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f2"/><stop offset=".6" stop-color="#d9d8d3"/><stop offset="1" stop-color="#b4b3ad"/></linearGradient>
+<linearGradient id="black" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f55"/><stop offset="1" stop-color="#1f2328"/></linearGradient>
+</defs>
+<rect width="800" height="560" fill="#ece8e1"/>
+<rect x="0" y="0" width="800" height="300" fill="url(#concrete)"/>
+<rect x="0" y="0" width="800" height="300" fill="#fff" opacity=".15"/>
+<rect x="0" y="300" width="800" height="260" fill="url(#gravel)"/>
+<rect x="0" y="290" width="800" height="24" fill="#a7a49d"/>
+<rect x="250" y="300" width="300" height="250" fill="#2b2f33"/>
+<rect x="262" y="300" width="276" height="240" fill="#3b4148"/>
+<g fill="#20252a"><circle cx="290" cy="360" r="5"/>
+<circle cx="345" cy="360" r="5"/>
+<circle cx="400" cy="360" r="5"/>
+<circle cx="455" cy="360" r="5"/>
+<circle cx="510" cy="360" r="5"/>
+<circle cx="290" cy="420" r="5"/>
+<circle cx="345" cy="420" r="5"/>
+<circle cx="400" cy="420" r="5"/>
+<circle cx="455" cy="420" r="5"/>
+<circle cx="510" cy="420" r="5"/>
+<circle cx="290" cy="480" r="5"/>
+<circle cx="345" cy="480" r="5"/>
+<circle cx="400" cy="480" r="5"/>
+<circle cx="455" cy="480" r="5"/>
+<circle cx="510" cy="480" r="5"/></g>
+<rect x="262" y="440" width="276" height="100" fill="#3b8fd9" opacity=".55"/>
+<rect x="330" y="410" width="110" height="130" rx="12" fill="#2f6db3"/>
+<rect x="345" y="420" width="80" height="20" rx="6" fill="#4b8ad3"/>
+<rect x="373" y="120" width="26" height="300" fill="url(#pipe)"/>
+<rect x="366" y="210" width="40" height="60" rx="6" fill="#1d1f22"/><text x="386" y="248" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">▲</text>
+<rect x="373" y="100" width="420" height="26" fill="url(#pipe)"/>
+<line x1="460" y1="450" x2="460" y2="360" stroke="#555" stroke-width="3"/><rect x="448" y="400" width="24" height="34" rx="6" fill="#e2a514"/>
+<rect x="560" y="200" width="60" height="40" rx="6" fill="#f5f5f2" stroke="#999"/><text x="590" y="226" font-family="Arial" font-size="13" text-anchor="middle" fill="#333">ALARM</text>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="420" y="140" rx="6" width="250" height="30" fill="#0f2a44" opacity=".88"/><text x="430" y="161" fill="#fff">Discharge line to outside</text></g>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="40" y="230" rx="6" width="135" height="30" fill="#0f2a44" opacity=".88"/><text x="50" y="251" fill="#fff">Check valve</text></g>
+<line x1="175" y1="245" x2="366" y2="240" stroke="#0f2a44" stroke-width="2"/>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="560" y="420" rx="6" width="135" height="30" fill="#0f2a44" opacity=".88"/><text x="570" y="441" fill="#fff">Float switch</text></g>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600"><rect x="40" y="470" rx="6" width="185" height="30" fill="#0f2a44" opacity=".88"/><text x="50" y="491" fill="#fff">Submersible pump</text></g>
+<line x1="225" y1="485" x2="330" y2="480" stroke="#fff" stroke-width="2"/>
+</svg>
