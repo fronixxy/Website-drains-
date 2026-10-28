@@ -1,45 +1,37 @@
 // Mobile menu
 const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.getElementById('nav-links');
 navToggle.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
 });
 navLinks.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') navLinks.classList.remove('open');
+  if (e.target.tagName === 'A') {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+  }
 });
 
 // Price tabs
 const tabs = document.querySelectorAll('.tab');
-function showTab(name) {
-  tabs.forEach((t) => {
-    const active = t.dataset.tab === name;
-    t.classList.toggle('active', active);
-    t.setAttribute('aria-selected', active);
-  });
-  document.querySelectorAll('.tab-panel').forEach((p) => {
-    p.hidden = p.id !== name;
-    p.classList.toggle('active', p.id === name);
-  });
-}
-tabs.forEach((t) => t.addEventListener('click', () => showTab(t.dataset.tab)));
-
-// Hero cards link to a tab
-document.querySelectorAll('.hero-card').forEach((card) => {
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    showTab(card.getAttribute('href').slice(1));
-    document.getElementById('prices').scrollIntoView();
+tabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    tabs.forEach((t) => {
+      const active = t === tab;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', active);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !active;
+    });
   });
 });
 
 // Estimator — per linear foot rates [low, high], CAD
 const RATES = {
-  interior: [90, 160],
-  exterior: [180, 320],
-  french: [50, 120],
-  sewer: [200, 450],
-  none: [0, 0],
+  interior: { label: 'Interior waterproofing', rate: [90, 160] },
+  exterior: { label: 'Exterior waterproofing', rate: [180, 320] },
+  french: { label: 'French drain', rate: [50, 120] },
+  sewer: { label: 'Sewer line replacement', rate: [200, 450] },
+  none: { label: '', rate: [0, 0] },
 };
 const CRACK = [600, 1200];
 
@@ -50,72 +42,61 @@ const lenOut = document.getElementById('est-len-out');
 const accessEl = document.getElementById('est-access');
 const cracksEl = document.getElementById('est-cracks');
 const rangeEl = document.getElementById('est-range');
+const linesEl = document.getElementById('est-lines');
 const rebateEl = document.getElementById('est-rebate');
 
-const money = (n) => '$' + (Math.round(n / 100) * 100).toLocaleString('en-CA');
+const round = (n) => Math.round(n / 100) * 100;
+const money = (n) => '$' + round(n).toLocaleString('en-CA');
+const span = (lo, hi) => `${money(lo)} – ${money(hi)}`;
 
 function estimate() {
-  const [rLow, rHigh] = RATES[typeEl.value];
+  const job = RATES[typeEl.value];
   const len = Number(lenEl.value);
   const access = Number(accessEl.value);
   lenOut.textContent = len;
   lenEl.disabled = typeEl.value === 'none';
+  accessEl.disabled = typeEl.value === 'none';
 
-  let low = rLow * len * access;
-  let high = rHigh * len * access;
+  const lines = [];
+  let low = 0;
+  let high = 0;
+  const add = (label, lo, hi) => {
+    low += lo;
+    high += hi;
+    lines.push(`<li><span>${label}</span><span>${span(lo, hi)}</span></li>`);
+  };
 
-  let rebateItem = false;
+  if (typeEl.value !== 'none') {
+    add(`${job.label}, ${len} ft`, job.rate[0] * len * access, job.rate[1] * len * access);
+  }
+
+  let rebate = typeEl.value === 'sewer';
   form.querySelectorAll('.check input:checked').forEach((cb) => {
-    low += Number(cb.dataset.low);
-    high += Number(cb.dataset.high);
-    if (/sump|backwater/i.test(cb.parentElement.textContent)) rebateItem = true;
+    add(cb.parentElement.textContent.trim(), Number(cb.dataset.low), Number(cb.dataset.high));
+    if ('rebate' in cb.dataset) rebate = true;
   });
 
-  const cracks = Math.max(0, Math.min(20, Number(cracksEl.value) || 0));
-  low += cracks * CRACK[0];
-  high += cracks * CRACK[1];
+  const cracks = Math.max(0, Math.min(20, Math.floor(Number(cracksEl.value) || 0)));
+  if (cracks) add(`Crack injection × ${cracks}`, cracks * CRACK[0], cracks * CRACK[1]);
 
-  rangeEl.textContent = high === 0 ? '$0' : `${money(low)} – ${money(high)}`;
-  rebateEl.hidden = !(rebateItem || typeEl.value === 'sewer');
+  rangeEl.textContent = high === 0 ? '$0' : span(low, high);
+  linesEl.innerHTML = lines.length > 1 ? lines.join('') : '';
+  rebateEl.hidden = !rebate;
 }
 form.addEventListener('input', estimate);
 form.addEventListener('submit', (e) => e.preventDefault());
 estimate();
 
-// Gallery filter
-const figures = document.querySelectorAll('.gallery figure');
-document.querySelectorAll('.filter').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter').forEach((b) => b.classList.toggle('active', b === btn));
-    figures.forEach((f) => {
-      f.hidden = btn.dataset.filter !== 'all' && f.dataset.cat !== btn.dataset.filter;
-    });
-  });
-});
-
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lbImg = lightbox.querySelector('img');
-const lbCaption = lightbox.querySelector('.lightbox-caption');
-figures.forEach((f) => {
-  f.addEventListener('click', () => {
-    const img = f.querySelector('img');
-    lbImg.src = img.src;
-    lbImg.alt = img.alt;
-    lbCaption.textContent = f.querySelector('figcaption').innerText.replace('\n', ' — ');
-    lightbox.hidden = false;
-  });
-});
-const closeLightbox = () => { lightbox.hidden = true; };
-lightbox.addEventListener('click', (e) => { if (e.target !== lbImg) closeLightbox(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-// Contact form (static site: show confirmation only)
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
+// Quote form (static site: validate and show confirmation)
+const quote = document.getElementById('quote');
+quote.addEventListener('submit', (e) => {
   e.preventDefault();
-  document.getElementById('form-msg').hidden = false;
-  contactForm.reset();
+  if (!quote.checkValidity()) {
+    quote.reportValidity();
+    return;
+  }
+  quote.querySelector('.form-msg').hidden = false;
+  quote.reset();
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
