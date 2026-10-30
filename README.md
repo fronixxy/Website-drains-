@@ -9,7 +9,7 @@ Static site, no build step. Open `index.html` in a browser, or host the folder o
 Before publishing, confirm the contact details (phone (647) 916-9046, info@prydegroupcorp.com, 4279 Woodington Dr, Mississauga)
 and the business claims (warranty length, licensing/WSIB).
 
-`CNAME` points GitHub Pages at prydegroupcorp.com. It only takes effect once the domain's DNS points to GitHub Pages.
+To serve the site on prydegroupcorp.com, add the domain under Settings → Pages → Custom domain and point the domain's DNS to GitHub Pages.
 Quote form: create a free form at https://formspree.io with the email that should receive requests,
 copy its ID (the part after `/f/` in the endpoint) and replace `YOUR_FORM_ID` in `index.html`.
 Until then the form runs in demo mode and only shows the thank-you message.
