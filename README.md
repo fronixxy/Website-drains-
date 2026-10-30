@@ -10,4 +10,6 @@ Before publishing, confirm the contact details (phone (647) 916-9046, info@pryde
 and the business claims (warranty length, licensing/WSIB).
 
 `CNAME` points GitHub Pages at prydegroupcorp.com. It only takes effect once the domain's DNS points to GitHub Pages.
-The quote form only shows a confirmation message; connect it to a service (e.g. Formspree) to receive requests.
+Quote form: create a free form at https://formspree.io with the email that should receive requests,
+copy its ID (the part after `/f/` in the endpoint) and replace `YOUR_FORM_ID` in `index.html`.
+Until then the form runs in demo mode and only shows the thank-you message.

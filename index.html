@@ -95,7 +95,9 @@
         </div>
       </div>
 
-      <form class="quote-card" id="quote" novalidate>
+      <!-- Replace YOUR_FORM_ID with the Formspree form ID to receive requests by email -->
+      <form class="quote-card" id="quote" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New quote request from website">
         <div class="quote-head">
           <h2>Get a free estimate</h2>
           <p>Tell us about the problem — we call back within one business day.</p>
@@ -118,7 +120,8 @@
         </label>
         <label for="q-msg">Describe the issue<textarea id="q-msg" name="message" rows="3" placeholder="Where does the water come in? When did it start?"></textarea></label>
         <button class="btn btn-accent btn-block btn-lg" type="submit">Request free quote</button>
-        <p class="form-msg" role="status" hidden>Thank you! Your request has been received. We will call you back within one business day.</p>
+        <p class="form-msg form-ok" role="status" hidden>Thank you! Your request has been received. We will call you back within one business day.</p>
+        <p class="form-msg form-error" role="alert" hidden>Sorry, the request could not be sent. Please call us at (647) 916-9046.</p>
         <p class="form-fine">No obligation. We never share your details.</p>
       </form>
     </div>

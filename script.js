@@ -87,16 +87,37 @@ form.addEventListener('input', estimate);
 form.addEventListener('submit', (e) => e.preventDefault());
 estimate();
 
-// Quote form (static site: validate and show confirmation)
+// Quote form — sends to Formspree (see the form's action attribute)
 const quote = document.getElementById('quote');
-quote.addEventListener('submit', (e) => {
+const quoteOk = quote.querySelector('.form-ok');
+const quoteErr = quote.querySelector('.form-error');
+quote.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!quote.checkValidity()) {
     quote.reportValidity();
     return;
   }
-  quote.querySelector('.form-msg').hidden = false;
-  quote.reset();
+  quoteOk.hidden = true;
+  quoteErr.hidden = true;
+  const button = quote.querySelector('button[type=submit]');
+  button.disabled = true;
+  try {
+    // Demo mode until a real Formspree ID is set
+    if (!quote.action.includes('YOUR_FORM_ID')) {
+      const res = await fetch(quote.action, {
+        method: 'POST',
+        body: new FormData(quote),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error(res.status);
+    }
+    quoteOk.hidden = false;
+    quote.reset();
+  } catch {
+    quoteErr.hidden = false;
+  } finally {
+    button.disabled = false;
+  }
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();

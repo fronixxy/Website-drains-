@@ -134,6 +134,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(19,122,216,.15); }
 textarea { resize: vertical; }
 .form-msg { margin: 0; padding: 10px 12px; border-radius: 8px; background: #e7f6ec; color: #17693a; font-weight: 600; font-size: .92rem; }
+.form-error { background: #fdecea; color: #a8261b; }
 .form-fine { margin: 0; text-align: center; font-size: .8rem; color: var(--muted); }
 
 /* Trust strip */
